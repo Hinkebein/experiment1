@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.SchoolMapper">
+
+
+    <!--查询id=2的课程信息-->
+    <!--
+<select id="findCourseWithSchoolByCId"
+            parameterType="Integer"
+            resultMap="CourseWithSchoolResult">
+        SELECT *,
+               s.id sid,
+               c.id cid
+        FROM
+            s_school s,
+            c_course c
+        WHERE
+            s.id=c.schools
+          AND
+            c.id=#{id}
+    </select>
+    <resultMap id="CourseWithSchoolResult" type="school">
+        <id column="sid" property="id"></id>
+        <result property="schoolname" column="schoolname"></result>
+        <collection property="courseList" javaType="list" ofType="course">
+            <id property="id" column="cid"></id>
+            <result property="name" column="name"></result>
+            <result property="hours" column="hours"></result>
+        </collection>
+    </resultMap>
+-->
+    <!-- 查询出所有计算机学院开设的课程信息-->
+
+  <!--  <select id="findCourseWithSchoolBySId"
+            parameterType="Integer"
+            resultMap="CourseWithSchoolResult">
+        SELECT *,
+               s.id sid,
+               c.id cid
+        FROM
+            s_school s,
+            c_course c
+        WHERE
+            s.id=c.schools
+          AND
+            s.id=#{id}
+    </select>
+    <resultMap id="CourseWithSchoolResult" type="school">
+        <id column="sid" property="id"></id>
+        <result property="schoolname" column="schoolname"></result>
+        <collection property="courseList" javaType="list" ofType="course">
+            <id property="id" column="cid"></id>
+            <result property="name" column="name"></result>
+            <result property="hours" column="hours"></result>
+        </collection>
+    </resultMap>
+    -->
+
+    <!--将 id=4 这⻔课程的课时数修改为 32+8=40-->
+ <!-- <update id="updateCourseById"
+            parameterType="course">
+        update c_course set hours=#{hours} where id=#{id}
+    </update>
+
+-->
+    <!-- 插⼊⼀条新的课程记录： names=”⼤数据存储“，hours=32，schools =1-->
+    <insert id="save"
+            parameterType="course">
+        insert into c_course values (null,#{name},#{hours},#{schools})
+    </insert>
+
+
+
+    <!--输出所有的学院开设的课程信息-->
+ <!-- <select id="findCourseWithSchoolById"
+            parameterType="Integer"
+            resultMap="CourseWithSchoolResult">
+        SELECT *,
+               s.id sid,
+               c.id cid
+        FROM
+            s_school s,
+            c_course c
+        WHERE
+            s.id=c.schools
+          AND
+            s.id=#{id}
+    </select>
+    <resultMap id="CourseWithSchoolResult" type="school">
+        <id column="sid" property="id"></id>
+        <result property="schoolname" column="schoolname"></result>
+        <collection property="courseList" javaType="list" ofType="course">
+            <id property="id" column="cid"></id>
+            <result property="name" column="name"></result>
+            <result property="hours" column="hours"></result>
+        </collection>
+    </resultMap>
+-->
+</mapper>
